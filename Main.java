@@ -4,9 +4,13 @@
 // import exampleOfEnum.Day;
 // import exampleOfEnum.Laptop;
 // import exampleOfEnum.Day.Days;
-import exampleOfException.CustomException;
-import exampleOfException.ExceptionExample;
+// import exampleOfException.CustomException;
+// import exampleOfException.ExceptionExample;
 // import exampleOfLambdaExpression.Greeting;
+
+import exampleOfThread.ClassFromRunnable;
+import exampleOfThread.ClassFromThread;
+import exampleOfThread.CounterForThread;
 
 public class Main {
 
@@ -74,13 +78,52 @@ public class Main {
     // greeting.greet("Win Nyein Oo");
     
     //exception examples
-    ExceptionExample exceptionExample = new ExceptionExample();
-    exceptionExample.checkException();
-    exceptionExample.uncheckedException();
-    try{
-    exceptionExample.testCustomException(17);
-    }catch (CustomException e){
+    // ExceptionExample exceptionExample = new ExceptionExample();
+    // exceptionExample.checkException();
+    // exceptionExample.uncheckedException();
+    // try{
+    // exceptionExample.testCustomException(17);
+    // }catch (CustomException e){
+    //   System.out.println(e.getMessage());
+    // }
+
+    //examples of using multiple thread
+    ClassFromThread classFromThread = new ClassFromThread();
+    ClassFromRunnable classFromRunnable = new ClassFromRunnable();
+
+    classFromThread.run();
+    classFromRunnable.run();
+
+    //example of synchronized thread
+    CounterForThread counterForThread = new CounterForThread();
+    
+    //overriding run method by lambda expression
+    Thread t1 = new Thread(()-> {
+        for(int i = 0; i< 1000; i++){
+          counterForThread.increment();
+        }
+      }
+    );
+
+    Thread t2 = new Thread(()-> {
+      for(int i = 0; i< 1000; i++){
+        counterForThread.increment();
+      }
+     }
+    );
+   
+    t1.start();
+    t2.start();
+
+    try {
+      t1.join();
+      t2.join();
+    } catch (InterruptedException e) {
       System.out.println(e.getMessage());
     }
+
+    System.out.println("Final Count is " + counterForThread.getCount() +".");
+
   }
+  
 }
