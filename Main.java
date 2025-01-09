@@ -89,21 +89,25 @@ public class Main {
 
     //examples of using multiple thread
     ClassFromThread classFromThread = new ClassFromThread();
+    classFromThread.start();
+     
+    //creating runnable object and pass to Thread 
     ClassFromRunnable classFromRunnable = new ClassFromRunnable();
-
-    classFromThread.run();
-    classFromRunnable.run();
+    Thread thread = new Thread(classFromRunnable);
+    thread.start();
 
     //example of synchronized thread
     CounterForThread counterForThread = new CounterForThread();
     
     //overriding run method by lambda expression
-    Thread t1 = new Thread(()-> {
-        for(int i = 0; i< 1000; i++){
-          counterForThread.increment();
-        }
+    Runnable runnable = ()->{
+      for(int i = 0; i< 1000; i++){
+        counterForThread.increment();
       }
+    };
+    Thread t1 = new Thread( runnable
     );
+    
 
     Thread t2 = new Thread(()-> {
       for(int i = 0; i< 1000; i++){
