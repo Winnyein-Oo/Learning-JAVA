@@ -14,7 +14,9 @@
 
 // import exampleOfCollections.EgOfArrayList;
 
-import exampleOfCollections.EgOfSet;
+// import exampleOfCollections.EgOfSet;
+
+import exampleOfCollections.EgOfMap;
 
 public class Main {
 
@@ -138,10 +140,14 @@ public class Main {
     // egOfArrayList.test();
     
     //set
-    EgOfSet egOfSet = new EgOfSet();
-    egOfSet.testHashSet();
-    egOfSet.testLinkedHashSet();
-    egOfSet.testTreeSet();
+    // EgOfSet egOfSet = new EgOfSet();
+    // egOfSet.testHashSet();
+    // egOfSet.testLinkedHashSet();
+    // egOfSet.testTreeSet();
+    
+    //map
+    EgOfMap egOfMap = new EgOfMap();
+    egOfMap.testHashMap();
     
   }
   
