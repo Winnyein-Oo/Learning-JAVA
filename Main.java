@@ -16,7 +16,14 @@
 
 // import exampleOfCollections.EgOfSet;
 
-import exampleOfCollections.EgOfMap;
+// import exampleOfCollections.EgOfMap;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+// import exampleOfComparable.Student;
+import exampleOfComparable.StudentForComparator;
 
 public class Main {
 
@@ -146,9 +153,38 @@ public class Main {
     // egOfSet.testTreeSet();
     
     //map
-    EgOfMap egOfMap = new EgOfMap();
-    egOfMap.testHashMap();
+    // EgOfMap egOfMap = new EgOfMap();
+    // egOfMap.testHashMap();
     
+    //comparable and comparator
+    // ArrayList<Student> students = new ArrayList<>();
+    // students.add(new Student("win nyei ",27 ));
+    // students.add(new Student("aye wutthmone ",25 ));
+    // students.add(new Student("myat mon ",25 ));
+    // Collections.sort(students);
+
+    ArrayList<StudentForComparator> students = new ArrayList<>();
+    students.add(new StudentForComparator("win nyein ",27 ));
+    students.add(new StudentForComparator("aye wutthmone ",25 ));
+    students.add(new StudentForComparator("myat mon ",25 ));
+
+    //creating comparator
+    Comparator<StudentForComparator> ageComparator = new Comparator<StudentForComparator>() {
+      @Override
+      public int compare (StudentForComparator student1, StudentForComparator student2){
+        return student2.getAge() - student1.getAge();
+      }
+    };
+
+    Comparator<StudentForComparator> nameComparator = (student1, student2) -> student1.getName().compareTo(student2.getName());
+
+    // Collections.sort(students,ageComparator);
+    Collections.sort(students,nameComparator);
+    
+    for (StudentForComparator student : students){
+      System.out.println(student.getName() + " : " + student.getAge() );
+    }
+
   }
   
 }
