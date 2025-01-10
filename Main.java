@@ -8,9 +8,11 @@
 // import exampleOfException.ExceptionExample;
 // import exampleOfLambdaExpression.Greeting;
 
-import exampleOfThread.ClassFromRunnable;
-import exampleOfThread.ClassFromThread;
-import exampleOfThread.CounterForThread;
+// import exampleOfThread.ClassFromRunnable;
+// import exampleOfThread.ClassFromThread;
+// import exampleOfThread.CounterForThread;
+
+import exampleOfCollections.EgOfArrayList;
 
 public class Main {
 
@@ -87,46 +89,51 @@ public class Main {
     //   System.out.println(e.getMessage());
     // }
 
-    //examples of using multiple thread
-    ClassFromThread classFromThread = new ClassFromThread();
-    classFromThread.start();
+  //   //examples of using multiple thread
+  //   ClassFromThread classFromThread = new ClassFromThread();
+  //   classFromThread.start();
      
-    //creating runnable object and pass to Thread 
-    ClassFromRunnable classFromRunnable = new ClassFromRunnable();
-    Thread thread = new Thread(classFromRunnable);
-    thread.start();
+  //   //creating runnable object and pass to Thread 
+  //   ClassFromRunnable classFromRunnable = new ClassFromRunnable();
+  //   Thread thread = new Thread(classFromRunnable);
+  //   thread.start();
 
-    //example of synchronized thread
-    CounterForThread counterForThread = new CounterForThread();
+  //   //example of synchronized thread
+  //   CounterForThread counterForThread = new CounterForThread();
     
-    //overriding run method by lambda expression
-    Runnable runnable = ()->{
-      for(int i = 0; i< 1000; i++){
-        counterForThread.increment();
-      }
-    };
-    Thread t1 = new Thread( runnable
-    );
+  //   //overriding run method by lambda expression
+  //   Runnable runnable = ()->{
+  //     for(int i = 0; i< 1000; i++){
+  //       counterForThread.increment();
+  //     }
+  //   };
+  //   Thread t1 = new Thread( runnable
+  //   );
     
 
-    Thread t2 = new Thread(()-> {
-      for(int i = 0; i< 1000; i++){
-        counterForThread.increment();
-      }
-     }
-    );
+  //   Thread t2 = new Thread(()-> {
+  //     for(int i = 0; i< 1000; i++){
+  //       counterForThread.increment();
+  //     }
+  //    }
+  //   );
    
-    t1.start();
-    t2.start();
+  //   t1.start();
+  //   t2.start();
 
-    try {
-      t1.join();
-      t2.join();
-    } catch (InterruptedException e) {
-      System.out.println(e.getMessage());
-    }
+  //   try {
+  //     t1.join();
+  //     t2.join();
+  //   } catch (InterruptedException e) {
+  //     System.out.println(e.getMessage());
+  //   }
 
-    System.out.println("Final Count is " + counterForThread.getCount() +".");
+  //   System.out.println("Final Count is " + counterForThread.getCount() +".");
+
+    //Examples of collection api
+    //arraylist
+    EgOfArrayList egOfArrayList = new EgOfArrayList();
+    egOfArrayList.test();
 
   }
   
