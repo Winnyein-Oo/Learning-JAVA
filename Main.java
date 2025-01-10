@@ -12,7 +12,9 @@
 // import exampleOfThread.ClassFromThread;
 // import exampleOfThread.CounterForThread;
 
-import exampleOfCollections.EgOfArrayList;
+// import exampleOfCollections.EgOfArrayList;
+
+import exampleOfCollections.EgOfSet;
 
 public class Main {
 
@@ -132,9 +134,15 @@ public class Main {
 
     //Examples of collection api
     //arraylist
-    EgOfArrayList egOfArrayList = new EgOfArrayList();
-    egOfArrayList.test();
-
+    // EgOfArrayList egOfArrayList = new EgOfArrayList();
+    // egOfArrayList.test();
+    
+    //set
+    EgOfSet egOfSet = new EgOfSet();
+    egOfSet.testHashSet();
+    egOfSet.testLinkedHashSet();
+    egOfSet.testTreeSet();
+    
   }
   
 }
