@@ -25,7 +25,9 @@
 // import exampleOfComparable.Student;
 // import exampleOfComparable.StudentForComparator;
 
-import exampleOfStream.EgOfStream;
+// import exampleOfStream.EgOfStream;
+
+import exampleOfMethodAndConstructorReference.EgOfMethodAndConstructorReference;
 
 public class Main {
 
@@ -188,9 +190,13 @@ public class Main {
     // }
 
     //Stream
-    EgOfStream egOfStream = new EgOfStream();
-    egOfStream.testStream();
-    egOfStream.testParallelStream();
+    // EgOfStream egOfStream = new EgOfStream();
+    // egOfStream.testStream();
+    // egOfStream.testParallelStream();
+
+    //Method and Constructor Reference
+    EgOfMethodAndConstructorReference egOfMethodAndConstructorReference = new EgOfMethodAndConstructorReference();
+    egOfMethodAndConstructorReference.testMethodAndConstructorRef();
 
   }
   
